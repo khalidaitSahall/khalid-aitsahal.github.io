@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta name="google-site-verification" content="LPmyd0TgG3lIRaN2RH04PhGZRhZIEUfmOtvc8EFMbZM" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="الموقع الشخصي لخالد أيت ساهل، المطور باستخدام HTML وCSS.">
-  <meta name="theme-color" content="#f6f8f6">
-  <title>خالد أيت ساهل | الموقع الشخصي</title>
+  <meta name="description" content="السيرة المهنية لخالد أيت ساهل، نجار ألمنيوم وخشب بخبرة 11 سنة.">
+  <meta name="theme-color" content="#1f5d3a">
+  <meta name="google-site-verification" content="LPmyd0TgG3lIRaN2RH04PhGZRhZIEUfmOtvc8EFMbZM">
+  <title>Khalid Ait Sahal | CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,93 +15,130 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="العودة إلى الرئيسية">خالد<span>.</span></a>
-    <nav aria-label="التنقل الرئيسي">
-      <a href="#about">نبذة عني</a>
-      <a href="#skills">المهارات</a>
-      <a href="#projects">المشاريع</a>
-      <a class="nav-contact" href="#contact">تواصل معي <span aria-hidden="true">↙</span></a>
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="#profile" data-i18n="navProfile">الملف الشخصي</a>
+      <a href="#experience" data-i18n="navExperience">الخبرة</a>
+      <a href="#skills" data-i18n="navSkills">المهارات</a>
+      <a href="#contact" data-i18n="navContact">تواصل</a>
     </nav>
+    <div class="lang-switcher" role="group" aria-label="اختيار اللغة">
+      <button class="lang-btn active" data-lang="ar" type="button" aria-pressed="true">AR</button>
+      <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+      <button class="lang-btn" data-lang="fr" type="button" aria-pressed="false">FR</button>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="home" aria-labelledby="page-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> مرحباً بك في موقعي الشخصي</p>
-        <h1 id="page-title">خالد أيت ساهل</h1>
-        <p class="description">موقعي الشخصي المطوّر باستخدام <strong>HTML</strong> و<strong>CSS</strong>، مساحة أعرّف فيها بنفسي وبأعمالي.</p>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="welcome">مرحباً بك في موقعي المهني</span></p>
+        <h1 id="page-title" data-i18n="name">خالد أيت ساهل</h1>
+        <p class="subtitle" data-i18n="jobTitle">نجار ألمنيوم وخشب</p>
+        <p class="description" data-i18n="intro">نجار ألمنيوم وخشب بخبرة مهنية منذ عام 2015. متخصص في التركيب والتشطيب وأخذ المقاسات وإتقان الآلات، وأبحث عن عمل قار.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#projects">تصفّح مشاريعي <span aria-hidden="true">←</span></a>
-          <a class="text-link" href="#about">تعرّف عليّ <span aria-hidden="true">↓</span></a>
+          <a href="#profile" class="button button-primary" data-i18n="profileButton">اكتشف مساري</a>
+          <a href="#contact" class="button button-secondary" data-i18n="contactButton">تواصل معي</a>
         </div>
-      </div>
-      <div class="hero-art">
-        <img src="K.jpeg" alt="الصورة الشخصية لخالد أيت ساهل" class="avatar-image">
-      </div>
-    </section>
-
-    <section class="content-section" id="about" aria-labelledby="about-title">
-      <div class="section-heading">
-        <p class="eyebrow">01 — من أنا؟</p>
-        <h2 id="about-title">نبذة عني</h2>
-      </div>
-      <div class="section-body">
-        <p class="placeholder">[أضف نبذة قصيرة عنك هنا: من أنت، وما الذي تهتم به؟]</p>
-      </div>
-    </section>
-
-    <section class="content-section section-tinted" id="skills" aria-labelledby="skills-title">
-      <div class="section-heading">
-        <p class="eyebrow">02 — ما الذي أجيده؟</p>
-        <h2 id="skills-title">المهارات</h2>
-      </div>
-      <div class="section-body">
-        <p class="section-intro">[أضف المهارات أو التقنيات التي ترغب في عرضها.]</p>
-        <ul class="tag-list" aria-label="قائمة المهارات">
-          <li>[أضف مهارة]</li>
-          <li>[أضف مهارة]</li>
-          <li>[أضف مهارة]</li>
+        <ul class="mini-stats" aria-label="معلومات سريعة">
+          <li><strong>11+</strong><span data-i18n="statYears">سنوات خبرة</span></li>
+          <li><strong>B</strong><span data-i18n="statLicense">رخصة السياقة</span></li>
+          <li><strong>3</strong><span data-i18n="statLanguages">لغات</span></li>
         </ul>
       </div>
+      <div class="hero-visual">
+        <div class="photo-card"><img src="K.jpeg" alt="الصورة الشخصية لخالد أيت ساهل"></div>
+        <span class="photo-caption" data-i18n="photoCaption">حرفية • دقة • التزام</span>
+      </div>
     </section>
 
-    <section class="content-section" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading">
-        <p class="eyebrow">03 — أعمالي</p>
-        <h2 id="projects-title">المشاريع</h2>
-      </div>
+    <section class="content-section" id="profile" aria-labelledby="profile-title">
+      <div class="section-heading"><p class="eyebrow" data-i18n="sectionProfileEyebrow">01 — الملف الشخصي</p><h2 id="profile-title" data-i18n="sectionProfileTitle">نبذة مهنية</h2></div>
       <div class="section-body">
-        <p class="section-intro">[أضف مشاريعك هنا مع وصف مختصر ورابط لكل مشروع.]</p>
-        <div class="cards">
-          <article class="card">
-            <span class="card-number">01</span>
-            <h3>[اسم المشروع]</h3>
-            <p class="placeholder">[اكتب وصفاً قصيراً للمشروع هنا.]</p>
-            <p class="project-link">[أضف رابط المشروع]</p>
-          </article>
-          <article class="card">
-            <span class="card-number">02</span>
-            <h3>[اسم المشروع]</h3>
-            <p class="placeholder">[اكتب وصفاً قصيراً للمشروع هنا.]</p>
-            <p class="project-link">[أضف رابط المشروع]</p>
-          </article>
+        <div class="profile-grid">
+          <article class="profile-card"><h3 data-i18n="profileCardTitle">الملف المهني</h3><p data-i18n="profileText">نجار ألمنيوم وخشب بخبرة مهنية منذ 2015. خبير في التركيب والتشطيب، وإتقان الآلات المهنية. حاصل على رخصة السياقة صنف B، وأبحث عن عمل قار.</p></article>
+          <article class="profile-card accent"><h3 data-i18n="availabilityTitle">مقر العمل</h3><p data-i18n="availabilityText">المغرب — مستعد للتنقل والعمل في مواقع ومشاريع مختلفة.</p></article>
         </div>
+      </div>
+    </section>
+
+    <section class="content-section section-alt" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><p class="eyebrow" data-i18n="sectionExperienceEyebrow">02 — الخبرة المهنية</p><h2 id="experience-title" data-i18n="sectionExperienceTitle">الخبرة المهنية</h2></div>
+      <div class="section-body">
+        <article class="timeline-item">
+          <div class="timeline-badge">2015—2026</div>
+          <div class="timeline-content"><h3 data-i18n="jobTitle1">نجار ألمنيوم مستقل</h3><p class="meta" data-i18n="jobMeta1">2015–2026 | المغرب (متنقل)</p>
+            <ul><li data-i18n="jobTask1A">تركيب وتثبيت الأبواب والنوافذ والواجهات الزجاجية.</li><li data-i18n="jobTask1B">التقطيع والتجميع وأخذ المقاسات في مواقع العمل.</li><li data-i18n="jobTask1C">استعمال آلات مهنية: منشار التقطيع، الفريزة، والمثقاب.</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading"><p class="eyebrow" data-i18n="sectionSkillsEyebrow">03 — المهارات</p><h2 id="skills-title" data-i18n="sectionSkillsTitle">المهارات الأساسية</h2></div>
+      <div class="section-body"><ul class="skills-grid">
+        <li class="skill-item" data-i18n="skill1">تركيب الأبواب والنوافذ والواجهات</li><li class="skill-item" data-i18n="skill2">التركيب والتشطيب</li><li class="skill-item" data-i18n="skill3">قراءة التصاميم وأخذ المقاسات</li><li class="skill-item" data-i18n="skill4">استعمال الآلات المهنية</li><li class="skill-item" data-i18n="skill5">الجدية والاستقلالية</li><li class="skill-item" data-i18n="skill6">التقطيع والتجميع</li>
+      </ul></div>
+    </section>
+
+    <section class="content-section section-alt" id="education" aria-labelledby="education-title">
+      <div class="section-heading"><p class="eyebrow" data-i18n="sectionEducationEyebrow">04 — التكوين</p><h2 id="education-title" data-i18n="sectionEducationTitle">التكوين والتأهيل</h2></div>
+      <div class="section-body"><article class="profile-card education-card"><span class="education-year">2015</span><h3 data-i18n="educationTitle">دبلوم التأهيل في نجارة الألمنيوم</h3><p data-i18n="educationPlace">مكتب التكوين المهني وإنعاش الشغل (OFPPT) — تارودانت</p><p class="meta" data-i18n="educationLevel">المستوى الدراسي: السنة الثالثة إعدادي</p></article></div>
+    </section>
+
+    <section class="content-section" id="languages" aria-labelledby="languages-title">
+      <div class="section-heading"><p class="eyebrow" data-i18n="sectionLanguagesEyebrow">05 — اللغات ورخصة السياقة</p><h2 id="languages-title" data-i18n="sectionLanguagesTitle">اللغات والرخصة</h2></div>
+      <div class="section-body languages-grid">
+        <article class="info-box"><h3 data-i18n="langTitle">اللغات</h3><ul><li data-i18n="langArabic">العربية: اللغة الأم</li><li data-i18n="langAmazigh">الأمازيغية: اللغة الأم</li><li data-i18n="langEnglish">الإنجليزية: B1</li><li data-i18n="langFrench">الفرنسية: A2 تقني</li></ul></article>
+        <article class="info-box"><h3 data-i18n="licenseTitle">رخصة السياقة</h3><p data-i18n="licenseText">الصنف B — سيارة شخصية</p></article>
       </div>
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
-      <div>
-        <p class="eyebrow">04 — لنتواصل</p>
-        <h2 id="contact-title">هل لديك سؤال أو فكرة؟</h2>
-        <p class="placeholder">[أضف بريدك الإلكتروني أو روابط حساباتك هنا.]</p>
-      </div>
-      <span class="contact-decoration" aria-hidden="true">✳</span>
+      <div class="contact-copy"><p class="eyebrow" data-i18n="contactEyebrow">06 — التواصل</p><h2 id="contact-title" data-i18n="contactTitle">هل لديكم فرصة عمل؟</h2><p data-i18n="contactText">أبحث عن فرصة عمل مستقرة في مجال نجارة الألمنيوم والخشب.</p></div>
+      <a class="button button-primary" href="mailto:" data-i18n="contactButtonMail">تواصل معي</a>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand" href="#home">خالد<span>.</span></a>
-    <p>© 2026 خالد أيت ساهل</p>
-    <a class="back-to-top" href="#home">العودة للأعلى ↑</a>
-  </footer>
+  <footer class="site-footer"><a class="brand" href="#home">خالد<span>.</span></a><p>© 2026 Khalid Ait Sahal</p><a class="back-to-top" href="#home" data-i18n="backTop">العودة للأعلى ↑</a></footer>
+
+  <script>
+    const translations = {
+      ar: {
+        navProfile:'الملف الشخصي',navExperience:'الخبرة',navSkills:'المهارات',navContact:'تواصل',welcome:'مرحباً بك في موقعي المهني',name:'خالد أيت ساهل',jobTitle:'نجار ألمنيوم وخشب',intro:'نجار ألمنيوم وخشب بخبرة مهنية منذ عام 2015. متخصص في التركيب والتشطيب وأخذ المقاسات وإتقان الآلات، وأبحث عن عمل قار.',profileButton:'اكتشف مساري',contactButton:'تواصل معي',statYears:'سنوات خبرة',statLicense:'رخصة السياقة',statLanguages:'لغات',photoCaption:'حرفية • دقة • التزام',
+        sectionProfileEyebrow:'01 — الملف الشخصي',sectionProfileTitle:'نبذة مهنية',profileCardTitle:'الملف المهني',profileText:'نجار ألمنيوم وخشب بخبرة مهنية منذ 2015. خبير في التركيب والتشطيب، وإتقان الآلات المهنية. حاصل على رخصة السياقة صنف B، وأبحث عن عمل قار.',availabilityTitle:'مقر العمل',availabilityText:'المغرب — مستعد للتنقل والعمل في مواقع ومشاريع مختلفة.',sectionExperienceEyebrow:'02 — الخبرة المهنية',sectionExperienceTitle:'الخبرة المهنية',jobTitle1:'نجار ألمنيوم مستقل',jobMeta1:'2015–2026 | المغرب (متنقل)',jobTask1A:'تركيب وتثبيت الأبواب والنوافذ والواجهات الزجاجية.',jobTask1B:'التقطيع والتجميع وأخذ المقاسات في مواقع العمل.',jobTask1C:'استعمال آلات مهنية: منشار التقطيع، الفريزة، والمثقاب.',
+        sectionSkillsEyebrow:'03 — المهارات',sectionSkillsTitle:'المهارات الأساسية',skill1:'تركيب الأبواب والنوافذ والواجهات',skill2:'التركيب والتشطيب',skill3:'قراءة التصاميم وأخذ المقاسات',skill4:'استعمال الآلات المهنية',skill5:'الجدية والاستقلالية',skill6:'التقطيع والتجميع',sectionEducationEyebrow:'04 — التكوين',sectionEducationTitle:'التكوين والتأهيل',educationTitle:'دبلوم التأهيل في نجارة الألمنيوم',educationPlace:'مكتب التكوين المهني وإنعاش الشغل (OFPPT) — تارودانت',educationLevel:'المستوى الدراسي: السنة الثالثة إعدادي',
+        sectionLanguagesEyebrow:'05 — اللغات ورخصة السياقة',sectionLanguagesTitle:'اللغات والرخصة',langTitle:'اللغات',langArabic:'العربية: اللغة الأم',langAmazigh:'الأمازيغية: اللغة الأم',langEnglish:'الإنجليزية: B1',langFrench:'الفرنسية: A2 تقني',licenseTitle:'رخصة السياقة',licenseText:'الصنف B — سيارة شخصية',contactEyebrow:'06 — التواصل',contactTitle:'هل لديكم فرصة عمل؟',contactText:'أبحث عن فرصة عمل مستقرة في مجال نجارة الألمنيوم والخشب.',contactButtonMail:'تواصل معي',backTop:'العودة للأعلى ↑'
+      },
+      en: {
+        navProfile:'Profile',navExperience:'Experience',navSkills:'Skills',navContact:'Contact',welcome:'Welcome to my professional website',name:'Khalid Ait Sahal',jobTitle:'Aluminium and Wood Joiner',intro:'Aluminium and wood joiner with professional experience since 2015. Skilled in installation, finishing, measuring, and operating professional machinery. Seeking a stable position.',profileButton:'Explore my profile',contactButton:'Contact me',statYears:'years of experience',statLicense:'driving licence',statLanguages:'languages',photoCaption:'Craftsmanship • Precision • Commitment',
+        sectionProfileEyebrow:'01 — Profile',sectionProfileTitle:'Professional profile',profileCardTitle:'About me',profileText:'Aluminium and wood joiner with professional experience since 2015. Skilled in installation and finishing, with experience operating professional machinery. Class B driving licence. Seeking stable employment.',availabilityTitle:'Location',availabilityText:'Morocco — willing to travel and work at different project sites.',sectionExperienceEyebrow:'02 — Professional experience',sectionExperienceTitle:'Work experience',jobTitle1:'Self-employed aluminium joiner',jobMeta1:'2015–2026 | Morocco (mobile)',jobTask1A:'Installed and fitted doors, windows, and glass façades.',jobTask1B:'Cutting, assembly, and on-site measurements.',jobTask1C:'Operated professional equipment: cut-off saw, router, and drill.',
+        sectionSkillsEyebrow:'03 — Skills',sectionSkillsTitle:'Core skills',skill1:'Door, window, and façade installation',skill2:'Installation and finishing',skill3:'Reading plans and taking measurements',skill4:'Operating professional machinery',skill5:'Reliable and self-motivated',skill6:'Cutting and assembly',sectionEducationEyebrow:'04 — Education',sectionEducationTitle:'Training and qualification',educationTitle:'Vocational qualification in aluminium joinery',educationPlace:'OFPPT Vocational Training Centre — Taroudant',educationLevel:'Education: completed 3rd year of middle school',
+        sectionLanguagesEyebrow:'05 — Languages and driving licence',sectionLanguagesTitle:'Languages and licence',langTitle:'Languages',langArabic:'Arabic: Native',langAmazigh:'Amazigh: Native',langEnglish:'English: B1',langFrench:'French: A2 (technical)',licenseTitle:'Driving licence',licenseText:'Class B — personal vehicle',contactEyebrow:'06 — Contact',contactTitle:'Are you hiring?',contactText:'I am looking for a stable opportunity in aluminium and wood joinery.',contactButtonMail:'Get in touch',backTop:'Back to top ↑'
+      },
+      fr: {
+        navProfile:'Profil',navExperience:'Expérience',navSkills:'Compétences',navContact:'Contact',welcome:'Bienvenue sur mon site professionnel',name:'Khalid Ait Sahal',jobTitle:'Menuisier aluminium et bois',intro:'Menuisier aluminium et bois avec une expérience professionnelle depuis 2015. Spécialisé dans la pose, les finitions, la prise de mesures et l’utilisation de machines professionnelles. À la recherche d’un emploi stable.',profileButton:'Découvrir mon profil',contactButton:'Me contacter',statYears:'ans d’expérience',statLicense:'permis de conduire',statLanguages:'langues',photoCaption:'Savoir-faire • Précision • Engagement',
+        sectionProfileEyebrow:'01 — Profil',sectionProfileTitle:'Profil professionnel',profileCardTitle:'À propos de moi',profileText:'Menuisier aluminium et bois avec une expérience professionnelle depuis 2015. Compétent en pose et finition, et dans l’utilisation de machines professionnelles. Permis B. À la recherche d’un emploi stable.',availabilityTitle:'Lieu de travail',availabilityText:'Maroc — mobile et disponible pour différents chantiers.',sectionExperienceEyebrow:'02 — Expérience professionnelle',sectionExperienceTitle:'Expérience professionnelle',jobTitle1:'Menuisier aluminium indépendant',jobMeta1:'2015–2026 | Maroc (mobile)',jobTask1A:'Pose et installation de portes, fenêtres et baies vitrées.',jobTask1B:'Découpe, assemblage et prise de mesures sur chantier.',jobTask1C:'Utilisation de machines professionnelles : scie à tronçonner, défonceuse et perceuse.',
+        sectionSkillsEyebrow:'03 — Compétences',sectionSkillsTitle:'Compétences clés',skill1:'Pose de portes, fenêtres et façades',skill2:'Pose et finition',skill3:'Lecture de plans et prise de mesures',skill4:'Utilisation de machines professionnelles',skill5:'Sérieux et autonomie',skill6:'Découpe et assemblage',sectionEducationEyebrow:'04 — Formation',sectionEducationTitle:'Formation et qualification',educationTitle:'Diplôme de qualification en menuiserie aluminium',educationPlace:'Centre de formation professionnelle OFPPT — Taroudant',educationLevel:'Niveau scolaire : 3e année du collège',
+        sectionLanguagesEyebrow:'05 — Langues et permis',sectionLanguagesTitle:'Langues et permis',langTitle:'Langues',langArabic:'Arabe : langue maternelle',langAmazigh:'Amazighe : langue maternelle',langEnglish:'Anglais : B1',langFrench:'Français : A2 technique',licenseTitle:'Permis de conduire',licenseText:'Permis B — véhicule personnel',contactEyebrow:'06 — Contact',contactTitle:'Vous recrutez ?',contactText:'Je recherche un emploi stable dans la menuiserie aluminium et bois.',contactButtonMail:'Me contacter',backTop:'Retour en haut ↑'
+      }
+    };
+    const buttons = document.querySelectorAll('.lang-btn');
+    const elements = document.querySelectorAll('[data-i18n]');
+    function applyLanguage(language) {
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+      elements.forEach((element) => { element.textContent = translations[language][element.dataset.i18n] || element.textContent; });
+      buttons.forEach((button) => {
+        const active = button.dataset.lang === language;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      try { localStorage.setItem('preferred-language', language); } catch (error) { /* Storage is optional. */ }
+    }
+    buttons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+    let language = 'ar';
+    try { if (translations[localStorage.getItem('preferred-language')]) language = localStorage.getItem('preferred-language'); } catch (error) { /* Arabic is the default. */ }
+    applyLanguage(language);
+  </script>
 </body>
 </html>
