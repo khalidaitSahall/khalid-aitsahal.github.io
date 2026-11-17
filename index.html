@@ -135,8 +135,6 @@
     };
     const buttons = document.querySelectorAll('.lang-btn');
     const elements = document.querySelectorAll('[data-i18n]');
-    const themeToggle = document.getElementById('theme-toggle');
-
     function applyLanguage(language) {
       document.documentElement.lang = language;
       document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
@@ -148,27 +146,11 @@
       });
       try { localStorage.setItem('preferred-language', language); } catch (error) { /* Storage is optional. */ }
     }
-
-    function applyTheme(theme) {
-      document.documentElement.dataset.theme = theme;
-      const isDark = theme === 'dark';
-      themeToggle.setAttribute('aria-pressed', String(isDark));
-      themeToggle.setAttribute('aria-label', isDark ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
-      themeToggle.querySelector('.theme-icon').textContent = isDark ? '☀️' : '🌙';
-      try { localStorage.setItem('preferred-theme', theme); } catch (error) { /* Storage is optional. */ }
-    }
-
     buttons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-
     let language = 'ar';
     try { if (translations[localStorage.getItem('preferred-language')]) language = localStorage.getItem('preferred-language'); } catch (error) { /* Arabic is the default. */ }
     applyLanguage(language);
-    const initialTheme = document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    applyTheme(initialTheme);
   </script>
+  <script src="src.js"></script>
 </body>
 </html>
