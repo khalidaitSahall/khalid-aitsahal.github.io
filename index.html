@@ -4,12 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="السيرة المهنية لخالد أيت ساهل، نجار ألمنيوم وخشب بخبرة 11 سنة.">
-  <meta name="theme-color" content="#1f5d3a">
+  <meta name="theme-color" content="#0866ff">
   <meta name="google-site-verification" content="LPmyd0TgG3lIRaN2RH04PhGZRhZIEUfmOtvc8EFMbZM">
   <title>Khalid Ait Sahal | CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('preferred-theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    } catch (error) { /* Theme storage is optional. */ }
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,10 +27,15 @@
       <a href="#skills" data-i18n="navSkills">المهارات</a>
       <a href="#contact" data-i18n="navContact">تواصل</a>
     </nav>
-    <div class="lang-switcher" role="group" aria-label="اختيار اللغة">
-      <button class="lang-btn active" data-lang="ar" type="button" aria-pressed="true">AR</button>
-      <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
-      <button class="lang-btn" data-lang="fr" type="button" aria-pressed="false">FR</button>
+    <div class="header-controls">
+      <div class="lang-switcher" role="group" aria-label="اختيار اللغة">
+        <button class="lang-btn active" data-lang="ar" type="button" aria-pressed="true">AR</button>
+        <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="fr" type="button" aria-pressed="false">FR</button>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="تفعيل الوضع الداكن" aria-pressed="false" title="تغيير المظهر">
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+      </button>
     </div>
   </header>
 
@@ -124,6 +135,8 @@
     };
     const buttons = document.querySelectorAll('.lang-btn');
     const elements = document.querySelectorAll('[data-i18n]');
+    const themeToggle = document.getElementById('theme-toggle');
+
     function applyLanguage(language) {
       document.documentElement.lang = language;
       document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
@@ -135,10 +148,27 @@
       });
       try { localStorage.setItem('preferred-language', language); } catch (error) { /* Storage is optional. */ }
     }
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const isDark = theme === 'dark';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', isDark ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
+      themeToggle.querySelector('.theme-icon').textContent = isDark ? '☀️' : '🌙';
+      try { localStorage.setItem('preferred-theme', theme); } catch (error) { /* Storage is optional. */ }
+    }
+
     buttons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
     let language = 'ar';
     try { if (translations[localStorage.getItem('preferred-language')]) language = localStorage.getItem('preferred-language'); } catch (error) { /* Arabic is the default. */ }
     applyLanguage(language);
+    const initialTheme = document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(initialTheme);
   </script>
 </body>
 </html>
