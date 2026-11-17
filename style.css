@@ -140,23 +140,52 @@ h1 { margin-bottom: .7rem; font-size: clamp(2.7rem, 6vw, 5.3rem); line-height: 1
 @media print {
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 8mm;
   }
 
-  .print-button {
-    display: none;
+  html {
+    font-size: 8pt;
   }
 
+  body {
+    background: #fff;
+    color: #000;
+    line-height: 1.25;
+  }
+
+  .print-button,
   .site-header,
-  .main-nav,
-  .lang-switcher,
-  .theme-toggle {
-    display: none;
+  .site-footer {
+    display: none !important;
   }
 
   .hero,
   .content-section,
   .contact-section {
-    break-after: page;
+    break-after: auto;
+    page-break-after: auto;
+    padding: 5mm;
+    margin: 0;
+  }
+
+  .profile-card,
+  .info-box,
+  .timeline-item {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 18pt;
+  }
+
+  h2 {
+    font-size: 12pt;
+  }
+
+  h3,
+  p,
+  li {
+    font-size: 8pt;
   }
 }
