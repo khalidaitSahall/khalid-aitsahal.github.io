@@ -32,6 +32,15 @@
       });
     }
 
+    const mainNav = document.querySelector('.main-nav');
+    if (mainNav && !mainNav.querySelector('a[href="page7/H.html"]')) {
+      const page7Link = document.createElement('a');
+      page7Link.href = 'page7/H.html';
+      page7Link.textContent = 'الصفحة 7';
+      page7Link.title = 'فتح page7/H.html';
+      mainNav.append(page7Link);
+    }
+
     const contactSection = document.querySelector('.contact-section');
     if (contactSection && !document.getElementById('site-actions')) {
       const actions = document.createElement('div');
@@ -97,7 +106,7 @@
       @media (max-width:620px) { .site-actions { width:100%; } .action-button { flex:1 1 42%; } }
       @media print {
         @page { size:A4; margin:14mm; }
-        :root { color-scheme:light !important; --bg:#fff !important; --paper:#fff !important; --paper-soft:#f2f2f2 !important; --ink:#111 !important; --muted:#333 !important; --line:#ccc !important; --blue:#174ea6 !important; }
+        :root { color-scheme:light !important; --bg:#fff !important; --paper:#fff !important; --paper-soft:#f2f2f2 !important; --ink:#111 !important; --muted:#333 !important; --line:#ccc !important; --blue:#0866ff !important; }
         body { min-width:0 !important; background:#fff !important; color:#111 !important; font-size:10pt !important; }
         .site-header, .site-footer, .hero-actions, .site-actions, .status-dot { display:none !important; }
         .hero, .content-section, .contact-section { margin:0 !important; padding:8mm 0 !important; background:#fff !important; color:#111 !important; break-inside:avoid; }
