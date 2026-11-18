@@ -3,15 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="السيرة المهنية لخالد أيت ساهل، نجار ألمنيوم وخشب بخبرة 11 سنة.">
-  <meta name="theme-color" content="#0866ff">
-  <title>Khalid Ait Sahal | CV</title>
+  <meta name="description" content="آلة حاسبة وأداة تفاعلية لرسم الأشكال الهندسية وحساب المساحة والمحيط والحجم.">
+  <meta name="theme-color" content="#101827">
+  <title>الأشكال الهندسية | آلة حاسبة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="H.css">
   <script src="H.js" defer></script>
 </head>
 <body>
-  <iframe class="site-frame" src="../index.html" title="السيرة المهنية لخالد أيت ساهل">
-    <p>تعذر عرض الصفحة. <a href="../index.html">افتح السيرة المهنية مباشرة</a>.</p>
-  </iframe>
+  <header class="topbar">
+    <a class="brand" href="../index.html" aria-label="العودة إلى الموقع الرئيسي"><span class="brand-mark">∑</span> هندسة <span class="brand-light">ومقاسات</span></a>
+    <a class="home-link" href="../index.html">العودة إلى الموقع الرئيسي <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main class="page-wrap">
+    <section class="intro">
+      <p class="eyebrow">أدوات عملية للقياس والتصميم</p>
+      <h1>من الفكرة إلى <span>الشكل</span></h1>
+      <p>آلة حاسبة سريعة، ورسام هندسي يساعدك على تصور الأشكال ثنائية وثلاثية الأبعاد وحساب أبعادها.</p>
+    </section>
+
+    <section class="workspace" aria-label="الأدوات الهندسية">
+      <article class="tool-card calculator-card" aria-labelledby="calculator-title">
+        <div class="card-heading">
+          <div><p class="card-kicker">01 / حساب سريع</p><h2 id="calculator-title">الآلة الحاسبة</h2></div>
+          <span class="heading-icon" aria-hidden="true">＋</span>
+        </div>
+        <div class="calculator" dir="ltr">
+          <output class="calc-display" id="calc-display" aria-live="polite">0</output>
+          <div class="calc-keys" id="calc-keys" aria-label="أزرار الآلة الحاسبة">
+            <button type="button" class="key key-utility" data-action="clear">AC</button>
+            <button type="button" class="key key-utility" data-action="sign">±</button>
+            <button type="button" class="key key-utility" data-action="percent">%</button>
+            <button type="button" class="key key-operator" data-operator="÷">÷</button>
+            <button type="button" class="key" data-digit="7">7</button>
+            <button type="button" class="key" data-digit="8">8</button>
+            <button type="button" class="key" data-digit="9">9</button>
+            <button type="button" class="key key-operator" data-operator="×">×</button>
+            <button type="button" class="key" data-digit="4">4</button>
+            <button type="button" class="key" data-digit="5">5</button>
+            <button type="button" class="key" data-digit="6">6</button>
+            <button type="button" class="key key-operator" data-operator="−">−</button>
+            <button type="button" class="key" data-digit="1">1</button>
+            <button type="button" class="key" data-digit="2">2</button>
+            <button type="button" class="key" data-digit="3">3</button>
+            <button type="button" class="key key-operator" data-operator="+">+</button>
+            <button type="button" class="key key-utility" data-action="backspace" aria-label="حذف آخر رقم">⌫</button>
+            <button type="button" class="key" data-digit="0">0</button>
+            <button type="button" class="key" data-action="decimal">.</button>
+            <button type="button" class="key key-equals" data-action="equals">=</button>
+          </div>
+        </div>
+        <p class="card-note">استخدم لوحة المفاتيح أو أزرار الآلة الحاسبة.</p>
+      </article>
+
+      <article class="tool-card geometry-card" aria-labelledby="geometry-title">
+        <div class="card-heading">
+          <div><p class="card-kicker">02 / رسم وقياس</p><h2 id="geometry-title">مختبر الأشكال الهندسية</h2></div>
+          <span class="heading-icon geometry-icon" aria-hidden="true">⬡</span>
+        </div>
+
+        <div class="mode-switch" role="group" aria-label="نوع الأشكال">
+          <button type="button" class="mode-button active" data-dimension="2d" aria-pressed="true">ثنائي الأبعاد <span>2D</span></button>
+          <button type="button" class="mode-button" data-dimension="3d" aria-pressed="false">ثلاثي الأبعاد <span>3D</span></button>
+        </div>
+
+        <div class="geometry-layout">
+          <div class="geometry-controls">
+            <label class="field-label" for="shape-select">اختر الشكل</label>
+            <select id="shape-select" class="shape-select">
+              <option value="rectangle">مستطيل</option>
+              <option value="square">مربع</option>
+              <option value="circle">دائرة</option>
+              <option value="triangle">مثلث</option>
+            </select>
+            <div id="dimension-fields" class="dimension-fields"></div>
+            <label class="field-label unit-label" for="unit-select">وحدة القياس</label>
+            <select id="unit-select" class="shape-select unit-select">
+              <option value="سم">سنتيمتر (سم)</option>
+              <option value="م">متر (م)</option>
+              <option value="مم">مليمتر (مم)</option>
+            </select>
+            <button type="button" id="calculate-shape" class="calculate-button">احسب وارسم <span aria-hidden="true">←</span></button>
+          </div>
+
+          <div class="preview-panel">
+            <div class="preview-topline"><span>معاينة الشكل</span><span class="live-dot">تفاعلي</span></div>
+            <div class="shape-stage" id="shape-stage" aria-label="معاينة هندسية"></div>
+            <p class="preview-caption" id="preview-caption">أدخل الأبعاد لرؤية الشكل.</p>
+          </div>
+        </div>
+
+        <div class="results" id="results" aria-live="polite" aria-label="نتائج القياس">
+          <div class="result-item"><span class="result-symbol">P</span><div><span class="result-name" id="result-one-label">المحيط</span><strong id="result-one">—</strong></div></div>
+          <div class="result-item"><span class="result-symbol">A</span><div><span class="result-name" id="result-two-label">المساحة</span><strong id="result-two">—</strong></div></div>
+          <p class="formula-note" id="formula-note">ستظهر النتائج والصيغ هنا بعد إدخال الأبعاد.</p>
+        </div>
+        <p class="disclaimer">الرسومات توضيحية وليست بمقياس رسم دقيق. استخدم نفس وحدة القياس لجميع الأبعاد.</p>
+      </article>
+    </section>
+    <footer class="page-footer"><span>هندسة ومقاسات</span><span>أداة تعليمية للحساب والتصور</span></footer>
+  </main>
 </body>
 </html>
