@@ -1,1 +1,67 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محرر الأكواد | Khalid Ait Sahal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#f0f2f5; --paper:#ffffff; --blue:#0866ff; --blue-dark:#075ce5; --blue-soft:#e7f3ff; --line:#d8dadf; --ink:#1c1e21; --muted:#65676b; }
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; display:flex; flex-direction:column; background:var(--bg); color:var(--ink); font-family:"Cairo",sans-serif; line-height:1.7; }
+header { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 1.4rem; border-bottom:1px solid var(--line); background:var(--paper); }
+header .brand { font-weight:800; font-size:1.3rem; color:var(--ink); text-decoration:none; }
+header .brand span { color:var(--blue); }
+header a.home { color:var(--blue); font-weight:700; text-decoration:none; padding:.5rem 1rem; border:1px solid var(--line); border-radius:10px; background:var(--paper); }
+header a.home:hover { background:var(--blue-soft); }
+.toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:.7rem; padding:.7rem 1.4rem; border-bottom:1px solid var(--line); background:var(--paper); }
+.run-btn { padding:.55rem 1.3rem; border:0; border-radius:10px; background:var(--blue); color:#fff; font-weight:800; font-family:inherit; cursor:pointer; }
+.run-btn:hover { background:var(--blue-dark); }
+.auto-label { display:inline-flex; align-items:center; gap:.4rem; color:var(--muted); font-size:.9rem; font-weight:700; cursor:pointer; }
+.hint { color:var(--muted); font-size:.85rem; }
+.workspace { flex:1; display:grid; grid-template-columns:1fr 1fr; gap:1rem; padding:1rem 1.4rem; }
+.panel { display:flex; flex-direction:column; min-height:0; overflow:hidden; border:1px solid var(--line); border-radius:14px; background:var(--paper); box-shadow:0 2px 8px rgba(0,0,0,.05); }
+.panel-title { padding:.6rem 1rem; border-bottom:1px solid var(--line); color:var(--blue); font-weight:800; font-size:.95rem; background:var(--blue-soft); }
+#code { flex:1; width:100%; min-height:45vh; resize:none; border:0; padding:1rem; font-family:Consolas,Menlo,monospace; font-size:.95rem; direction:ltr; text-align:left; color:var(--ink); background:#fbfcfe; outline:none; }
+#preview { flex:1; width:100%; border:0; background:#fff; }
+@media (max-width:820px){ .workspace { grid-template-columns:1fr; } #code { min-height:35vh; } }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/index.html">خالد<span>.</span></a>
+  <a class="home" href="/index.html">العودة للرئيسية ←</a>
+</header>
+
+<div class="toolbar">
+  <button class="run-btn" id="run" type="button">▶ تشغيل</button>
+  <label class="auto-label"><input type="checkbox" id="auto" checked> تحديث تلقائي أثناء الكتابة</label>
+  <button class="run-btn" id="reset" type="button" style="background:var(--paper); color:var(--blue); border:1px solid var(--line);">تفريغ</button>
+  <span class="hint">اكتب HTML/CSS/JS ثم شوف النتيجة مباشرة فالمعاينة.</span>
+</div>
+
+<main class="workspace">
+  <section class="panel">
+    <div class="panel-title">📝 الكود</div>
+    <textarea id="code" spellcheck="false" aria-label="منطقة كتابة الكود"><h1 style="font-family:sans-serif">مرحباً 👋</h1>
+<p style="font-family:sans-serif">بدّل هاد الكود وشوف النتيجة!</p></textarea>
+  </section>
+  <section class="panel">
+    <div class="panel-title">👁 المعاينة</div>
+    <iframe id="preview" title="معاينة النتيجة" sandbox="allow-scripts"></iframe>
+  </section>
+</main>
+
+<script>
+const code = document.getElementById('code');
+const preview = document.getElementById('preview');
+const auto = document.getElementById('auto');
+function render(){ preview.srcdoc = code.value; }
+document.getElementById('run').addEventListener('click', render);
+document.getElementById('reset').addEventListener('click', () => { code.value = ''; render(); code.focus(); });
+code.addEventListener('input', () => { if (auto.checked) render(); });
+render();
+</script>
+</body>
+</html>
