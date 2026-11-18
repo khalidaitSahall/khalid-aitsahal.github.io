@@ -33,12 +33,19 @@
     }
 
     const mainNav = document.querySelector('.main-nav');
-    if (mainNav && !mainNav.querySelector('a[href="page7/H.html"]')) {
-      const page7Link = document.createElement('a');
-      page7Link.href = 'page7/H.html';
-      page7Link.textContent = 'الصفحة 7';
-      page7Link.title = 'فتح page7/H.html';
-      mainNav.append(page7Link);
+    if (mainNav) {
+      const navPages = [
+        { href: 'page1/H.html', label: 'الصفحة 1' },
+        { href: 'page7/H.html', label: 'الصفحة 7' }
+      ];
+      navPages.forEach(({ href, label }) => {
+        if (mainNav.querySelector(`a[href="${href}"]`)) return;
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = label;
+        link.title = `فتح ${href}`;
+        mainNav.append(link);
+      });
     }
 
     const contactSection = document.querySelector('.contact-section');
