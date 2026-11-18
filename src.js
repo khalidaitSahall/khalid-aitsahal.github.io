@@ -32,11 +32,11 @@
       });
     }
 
+    // رابط المحرر فقط — تم حذف "الصفحة 7" من هنا
     const mainNav = document.querySelector('.main-nav');
     if (mainNav) {
       const navPages = [
-        { href: 'page1/H.html', label: 'الصفحة 1' },
-        { href: 'page7/H.html', label: 'الصفحة 7' }
+        { href: 'page1/H.html', label: 'الصفحة 1' }
       ];
       navPages.forEach(({ href, label }) => {
         if (mainNav.querySelector(`a[href="${href}"]`)) return;
